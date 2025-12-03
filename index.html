@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>AutoSelect — Carros Toyota & Nissan</title>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  body{margin:0;font-family:Inter,Arial;background:#f4f7fb;color:#0b1b2b}
+  header{background:black;box-shadow:0 4px 14px rgba(0,0,0,0.08);padding:16px;position:sticky;top:0;z-index:10; display: flex; flex-direction: row; justify-content: end;}
+  nav a{margin-right:16px;text-decoration:none;color:white;font-weight:600}
+  nav a:hover{color:  #d9534f;}
+  h2{text-align:center;margin-top:40px}
+
+  /* BANNER */
+  .banner{position:relative;width:100%;height:380px;overflow:hidden;}
+  .banner img{position:absolute;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease;}
+  .banner img.active{opacity:1;}
+
+  /* DESCRIÇÃO */
+  .descricao{max-width:900px;margin:30px auto;text-align:center;font-size:20px;color:#0b1b2b;line-height:1.5;}
+  .descricao span{color:#0f62fe;font-weight:700;}
+
+  /* CATÁLOGO */
+  .catalogo{max-width:1100px;margin:40px auto;display:grid;grid-template-columns:repeat(3,1fr);gap:30px;}
+  .car-card{background:#fff;border-radius:12px;padding:12px;box-shadow:0 8px 20px rgba(0,0,0,0.08);display:flex;flex-direction:column;transition:transform 0.3s;}
+  .car-card:hover{transform:translateY(-5px);}
+  .car-card img{width:100%;height:200px;object-fit:cover;border-radius:10px;margin-bottom:10px;}
+  .price{color:#0f62fe;font-weight:700;margin:6px 0;}
+  .desc{font-size:14px;color:#6b7380;margin-bottom:10px;}
+  .action-btn{padding:10px;background:#000;color:#fff;border:none;border-radius:10px;cursor:pointer;font-weight:700;transition:background 0.3s;}
+  .action-btn:hover{background:#333;}
+
+  /* GALERIA */
+  .gallery-container{max-width:900px;margin:40px auto;position:relative;overflow:hidden;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.08);}
+  .gallery-slide{display:flex;transition:transform 0.5s ease;}
+  .gallery-slide img{width:100%;flex-shrink:0;border-radius:12px;}
+  .arrow{position:absolute;top:50%;transform:translateY(-50%);background:#000;color:#fff;border:none;font-size:24px;padding:8px 12px;cursor:pointer;border-radius:50%;opacity:0.7;}
+  .arrow:hover{opacity:1;}
+  .arrow-left{left:10px;}
+  .arrow-right{right:10px;}
+
+  .testimonials-container::-webkit-scrollbar {height:6px;}
+  .testimonials-container::-webkit-scrollbar-thumb {background:#0f62fe;border-radius:3px;}
+
+
+  @media(max-width:1024px){.catalogo{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:700px){.catalogo{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="#home">Início</a>
+    <a href="#catalogo">Carros em Destaque</a>
+    <a href="#toyota-gallery">Toyota</a>
+    <a href="#nissan-gallery">Nissan</a>
+    <a href="sobre.html">Sobre nós</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+</header>
+
+<!-- BANNER -->
+<section class="banner" id="home">
+  <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1600&q=70" class="active">
+  <img src="https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?auto=format&fit=crop&w=1600&q=70">
+  <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=70">
+  <img src="https://img.sm360.ca/ir/w800h600/images/article/dilawri-group-of-companies/109845//2023-nissan-altima1675428300502.jpg">
+</section>
+
+<script>
+  let index = 0;
+  const slides = document.querySelectorAll('.banner img');
+  function showSlide(){slides.forEach(s=>s.classList.remove('active'));slides[index].classList.add('active');index=(index+1)%slides.length;}
+  setInterval(showSlide,3500);
+</script>
+
+<!-- DESCRIÇÃO -->
+<section class="descricao">
+  <p>Bem-vindo à <span>AutoSelect</span>, onde você encontra os melhores <span>carros Toyota e Nissan</span> com qualidade, segurança e preço justo. Escolha seu próximo carro e viva a experiência de dirigir com estilo e confiança!</p>
+</section>
+
+<!-- CATÁLOGO -->
+<h2 id="catalogo">Carros em Destaque</h2>
+<div class="catalogo">
+  <div class="car-card">
+    <img src="https://hips.hearstapps.com/hmg-prod/images/2024-toyota-gr-corolla-premium-exterior-107-662035ecce76c.jpg?crop=0.673xw:0.566xh;0.157xw,0.269xh&resize=1200:*" alt="Toyota Corolla">
+    <h3>Toyota Corolla 2024</h3>
+    <div class="price">$23,000</div>
+    <div class="desc">Conforto, segurança e consumo excelente. Ideal para cidade e viagens longas.</div>
+    <button class="action-btn">Saiba Mais</button>
+  </div>
+  <div class="car-card">
+    <img src="https://lp-auto-assets.s3.amazonaws.com/23/toyota/camry/M1/secc1.jpg" alt="Toyota Camry">
+    <h3>Toyota Camry 2023</h3>
+    <div class="price">$28,000</div>
+    <div class="desc">Sedan elegante, espaçoso e eficiente para viagens e uso diário.</div>
+    <button class="action-btn">Saiba Mais</button>
+  </div>
+  <div class="car-card">
+    <img src="https://carsguide-res.cloudinary.com/image/upload/f_auto,fl_lossy,q_auto,t_default/v1/editorial/2023-Nissan-GT-R-coupe-red-Best-Car-Web-1001x565-1.jpg" alt="Nissan GT-R">
+    <h3>Nissan GT‑R 2023</h3>
+    <div class="price">$89,000</div>
+    <div class="desc">Potência extrema, design esportivo e desempenho de tirar o fôlego.</div>
+    <button class="action-btn">Saiba Mais</button>
+  </div>
+  <div class="car-card">
+    <img src="https://img.sm360.ca/ir/w800h600/images/article/dilawri-group-of-companies/109845//2023-nissan-altima1675428300502.jpg" alt="Nissan Altima">
+    <h3>Nissan Altima 2023</h3>
+    <div class="price">$25,000</div>
+    <div class="desc">Sedan moderno, confortável e eficiente — ótimo para o dia a dia.</div>
+    <button class="action-btn">Saiba Mais</button>
+  </div>
+  <div class="car-card">
+    <img src="https://images.pexels.com/photos/358070/pexels-photo-358070.jpeg" alt="Toyota RAV4">
+    <h3>Toyota RAV4 2024</h3>
+    <div class="price">$32,000</div>
+    <div class="desc">SUV robusto e versátil, perfeito para família e aventuras.</div>
+    <button class="action-btn">Saiba Mais</button>
+  </div>
+  <div class="car-card">
+    <img src="https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg" alt="Nissan Rogue">
+    <h3>Nissan Rogue 2024</h3>
+    <div class="price">$28,500</div>
+    <div class="desc">SUV elegante, seguro e eficiente — ideal para família.</div>
+    <button class="action-btn">Saiba Mais</button>
+  </div>
+</div>
+
+<!-- GALERIA TOYOTA -->
+<h2 id="toyota-gallery">Galeria de Modelos Toyota</h2>
+<div class="gallery-container" id="toyotaContainer">
+  <div class="gallery-slide" id="toyotaSlide">
+    <img src="https://cdn.dealerspace.ai/saga/toyota-prius-2022.jpg" alt="Toyota Corolla">
+    <img src="https://www.toyota.co.mz/media/gamme/modeles/images/82aaaefb362f31aa29df8e5956d92552.png" alt="Toyota Camry">
+    <img src="https://www.webmotors.com.br/wp-content/uploads/2023/02/12233915/Lexus-NX-350h.webp" alt="Toyota RAV4">
+  </div>
+  <button class="arrow arrow-left" onclick="prevSlide('toyota')">&#10094;</button>
+  <button class="arrow arrow-right" onclick="nextSlide('toyota')">&#10095;</button>
+</div>
+
+<!-- GALERIA NISSAN -->
+<h2 id="nissan-gallery">Galeria de Modelos Nissan</h2>
+<div class="gallery-container" id="nissanContainer">
+  <div class="gallery-slide" id="nissanSlide">
+    <img src="https://cdn.motor1.com/images/mgl/8MPzP/s3/2020-nissan-sentra-first-drive.jpg" alt="Nissan GT-R">
+    <img src="https://cdn.pixabay.com/photo/2018/03/20/19/20/nissan-3246877_1280.jpg" alt="Nissan Altima">
+    <img src="https://cdn.pixabay.com/photo/2017/01/06/19/21/nissan-1955528_1280.jpg" alt="Nissan Rogue">
+  </div>
+  <button class="arrow arrow-left" onclick="prevSlide('nissan')">&#10094;</button>
+  <button class="arrow arrow-right" onclick="nextSlide('nissan')">&#10095;</button>
+</div>
+<!-- DEPOIMENTOS -->
+<h2 style="text-align:center;margin-top:60px;color:#d9534f;">O QUE NOSSOS CLIENTES DIZEM SOBRE NÓS</h2>
+<div class="testimonials-container" style="max-width:1000px;margin:40px auto;display:flex;overflow-x:auto;gap:20px;padding-bottom:20px;">
+  
+  <!-- Depoimento 1 -->
+  <div class="testimonial-card" style="flex:0 0 300px;background:#fff;border-radius:12px;padding:20px;box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+    <div style="display:flex;align-items:center;gap:12px;">
+      <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente 1" style="width:50px;height:50px;border-radius:50%;">
+      <div>
+        <strong>AutoSelect</strong><br>
+        <span style="font-size:12px;color:#6b7380;">Como base em 167 críticas</span>
+      </div>
+    </div>
+    <div style="margin-top:10px;color:#0b1b2b;">
+      <p>4.4 <span style="color:#f0ad4e;">★★★★★</span></p>
+      <p style="font-size:14px;color:#6b7380;">powered by Google</p>
+    </div>
+  </div>
+
+  <!-- Depoimento 2 -->
+  <div class="testimonial-card" style="flex:0 0 300px;background:#fff;border-radius:12px;padding:20px;box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+    <strong>Martim Martins</strong> <span style="font-size:12px;color:#6b7380;">• 4 anos atrás</span>
+    <p style="margin-top:10px;font-size:14px;color:#0b1b2b;">Ficámos muito satisfeitos com a compra da viatura através da AutoSelect. O atendimento foi impecável e personalizado.</p>
+  </div>
+
+  <!-- Depoimento 3 -->
+  <div class="testimonial-card" style="flex:0 0 300px;background:#fff;border-radius:12px;padding:20px;box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+    <strong>Relia Saul</strong> <span style="font-size:12px;color:#6b7380;">• 4 anos atrás</span>
+    <p style="margin-top:10px;font-size:14px;color:#0b1b2b;">Atendimento impecável, sempre com boa disposição para atender minhas preocupações e dúvidas.</p>
+  </div>
+
+  <!-- Depoimento 4 -->
+  <div class="testimonial-card" style="flex:0 0 300px;background:#fff;border-radius:12px;padding:20px;box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+    <strong>Ricardo Guambe</strong> <span style="font-size:12px;color:#6b7380;">• 4 anos atrás</span>
+    <p style="margin-top:10px;font-size:14px;color:#0b1b2b;">A experiência com o gestor de vendas foi excelente. Profissional e orientado para o cliente.</p>
+  </div>
+
+</div>
+<!-- Seção de Subscrição -->
+<section id="newsletter" style="background-color: #fff; padding: 40px 20px; text-align: center;">
+    <h2 style="color: #d9534f; font-size: 24px; margin-bottom: 10px;">SUBSCREVA A NOSSA NEWSLETTER</h2>
+    <p style="color: #666; margin-bottom: 20px;">Seja o primeiro a receber as novidades subscrevendo a nossa Newsletter</p>
+    <form style="display: flex; justify-content: center; max-width: 500px; margin: 0 auto;">
+        <input type="email" placeholder="Introduza o seu email" style="flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 4px 0 0 4px; font-size: 16px;">
+        <button type="submit" style="background-color: #d9534f; color: #fff; border: none; padding: 10px 20px; border-radius: 0 4px 4px 0; cursor: pointer;">Subscreva</button>
+    </form>
+</section>
+
+<!-- Rodapé -->
+<footer style="background-color: #111; color: #fff; padding: 60px 20px; text-align: center; width: 100%;">
+
+    <!-- Redes sociais com ícones -->
+    <div style="margin-bottom: 40px; font-size: 24px;">
+        <a href="#" style="color: #fff; margin: 0 10px;"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" style="color: #fff; margin: 0 10px;"><i class="fab fa-twitter"></i></a>
+        <a href="#" style="color: #fff; margin: 0 10px;"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" style="color: #fff; margin: 0 10px;"><i class="fab fa-instagram"></i></a>
+        <a href="#" style="color: #fff; margin: 0 10px;"><i class="fab fa-youtube"></i></a>
+    </div>
+
+    <!-- Blocos de ação -->
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+        <div style="background: rgba(255,255,255,0.05); padding: 20px; max-width: 300px; border-radius: 6px;">
+            <h3 style="color: #fff; margin-bottom: 10px;">ESTÁ A PROCURA DE UM CARRO?</h3>
+            <p style="color: #ccc; font-size: 14px;">Pesquise nosso inventário com diversas viaturas para todos gostos e necessidades</p>
+            <button style="background-color: #d9534f; color: #fff; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer;">PESQUISAR</button>
+        </div>
+        <div style="background: rgba(255,255,255,0.05); padding: 20px; max-width: 300px; border-radius: 6px;">
+            <h3 style="color: #fff; margin-bottom: 10px;">QUER VENDER O SEU CARRO?</h3>
+            <p style="color: #ccc; font-size: 14px;">A AutoSelect pode ajudá-lo a vender a sua viatura e pode escolher a modalidade que for mais conveniente</p>
+            <button style="background-color: #d9534f; color: #fff; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer;">SAIBA MAIS</button>
+        </div>
+    </div>
+
+    <p style="margin-top: 40px; font-size: 14px; color: #777;">&copy; 2025 AutoSelect. Todos os direitos reservados.</p>
+</footer>
+
+<!-- Font Awesome CDN para os ícones -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+
+
+<script>
+  const slidesData = {
+    toyota: { index:0, slide: document.getElementById('toyotaSlide'), total:3 },
+    nissan: { index:0, slide: document.getElementById('nissanSlide'), total:3 }
+  };
+  function updateSlide(name){const data=slidesData[name];data.slide.style.transform=`translateX(-${data.index*100}%)`;}
+  function nextSlide(name){const data=slidesData[name];data.index=(data.index+1)%data.total;updateSlide(name);}
+  function prevSlide(name){const data=slidesData[name];data.index=(data.index-1+data.total)%data.total;updateSlide(name);}
+  window.addEventListener('resize',()=>{updateSlide('toyota');updateSlide('nissan');});
+</script>
+
+</body>
+</html>
