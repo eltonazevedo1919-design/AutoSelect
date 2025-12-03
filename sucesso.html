@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mensagem Enviada</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: "Arial", sans-serif;
+        background: linear-gradient(135deg, #000000, #1a1a1a);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+    }
+
+    .card {
+        background: #ffffff10;
+        backdrop-filter: blur(10px);
+        padding: 50px 40px;
+        border-radius: 20px;
+        max-width: 450px;
+        border: 1px solid #ffffff30;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+        animation: fadeIn 1s ease;
+    }
+
+    .icon {
+        font-size: 70px;
+        margin-bottom: 20px;
+        color: #4ade80;
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+
+    p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: #e5e5e5;
+        margin-bottom: 30px;
+    }
+
+    .btn {
+        text-decoration: none;
+        background: #000;
+        color: #fff;
+        padding: 15px 20px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        border-radius: 10px;
+        display: inline-block;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background: #333;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to   { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <div class="icon">✔️</div>
+
+    <h1>Mensagem Enviada!</h1>
+
+    <p>
+        Agradecemos o seu contacto.<br>
+        A sua mensagem foi recebida com sucesso e responderemos em breve.
+    </p>
+
+    <a href="index.html" class="btn">Voltar ao Início</a>
+</div>
+
+</body>
+</html>
